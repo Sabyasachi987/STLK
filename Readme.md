@@ -1,5 +1,5 @@
 # stlk 🪶
-<p align="center"> <img src="./assets/@sabyasachi.png" alt="stlk logo" width="150" /> </p>
+<p align="center"> <img src="https://github.com/Sabyasachi987/STLK/blob/master/assets/%40sabyasachi.png" alt="stlk logo" width="200" /> </p>
 A tiny Git-like version control system built with Node.js. 🚀  
 Installable via npm, **stlk** mimics core Git functionality with a simplified design—perfect for learning or lightweight projects.
 
