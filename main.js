@@ -30,7 +30,7 @@ function isIgnored(filePath) {
 program
   .name("stlk")
   .description("🪶 A tiny git-like VCS")
-  .version("1.0.0");
+  .version("1.0.9");
 
 program
   .command("init")
