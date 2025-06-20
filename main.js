@@ -1079,7 +1079,7 @@ async function mergeBranch(branchName) {
     // Write a special merge head file like Git
     fs.writeFileSync(path.join(".stlk", "MERGE_HEAD"), targetCommitSha);
     await restoreTreeToWorkingDirectory(mergedTreeSha);  // Write conflicted files to working dir
-    console.log(chalk.cyan("💡 Resolve conflicts and run: `shyt merge --continue`"));
+    console.log(chalk.cyan("💡 Resolve conflicts and run: `stlk merge --continue`"));
     return;
   }
 
