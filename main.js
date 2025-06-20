@@ -7,7 +7,7 @@ const crypto=require('crypto')
 const chalk = require('chalk');
 const diff = require("diff")
 const { program } = require("commander")
-
+const {version}=require("./package.json")
 
 let ignored = [];
 
@@ -30,7 +30,7 @@ function isIgnored(filePath) {
 program
   .name("stlk")
   .description("🪶 A tiny git-like VCS")
-  .version("1.0.9");
+  .version(version);
 
 program
   .command("init")
