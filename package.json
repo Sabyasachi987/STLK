@@ -1,6 +1,6 @@
 {
   "name": "stlk",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "A mini Git-like version control system",
   "main": "main.js",
   "bin": {
