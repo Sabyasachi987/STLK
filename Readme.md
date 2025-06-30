@@ -1,4 +1,4 @@
-# stlk 🪶
+# stlk 🕵🏻‍♂️
 
 <p align="center">
 <img src="https://raw.githubusercontent.com/Sabyasachi987/STLK/master/assets/%40sabyasachi.png" alt="stlk logo" width="250" /></p>
