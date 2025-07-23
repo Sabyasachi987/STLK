@@ -8,22 +8,24 @@ const chalk = require('chalk');
 const diff = require("diff")
 const { program } = require("commander")
 const {version}=require("./package.json")
+const minimatch = require('minimatch');
 
 let ignored = [];
 
-const ignoreFile = path.join(process.cwd(), ".stlkignore");
-if (fs.existsSync(ignoreFile)) {
-  ignored = fs.readFileSync(ignoreFile, "utf-8")
-    .split("\n")
-    .map(line => line.trim())
-    .filter(line => line && !line.startsWith("#"));
+function loadIgnoreList() {
+  const ignoreFile = path.join(process.cwd(), ".stlkignore");
+  if (fs.existsSync(ignoreFile)) {
+    ignored = fs.readFileSync(ignoreFile, "utf-8")
+      .split("\n")
+      .map(line => line.trim())
+      .filter(line => line && !line.startsWith("#"));
+  } else {
+    ignored = [];
+  }
 }
 
 function isIgnored(filePath) {
-  return ignored.some(pattern => {
-    // Simple contains check, improve with glob or regex if needed
-    return filePath.includes(pattern);
-  });
+  return ignored.some(pattern => minimatch(filePath, pattern));
 }
 
 // Uncomment this block to pass the first stage
@@ -457,6 +459,8 @@ async function logHistory() {
 
 //THIS HASHES THE FILE CONTENT AND INDEX THEM IN .GIT/INDEX BASED ON WHETHER THEY ARE FOLDER OR FILE
 function addPath(inputPath) {
+    loadIgnoreList();//Load ignored files
+
   const fullPath = path.join(process.cwd(), inputPath);
 
   // ❌ Skip .stlk directory, and .stlkignore file itself
